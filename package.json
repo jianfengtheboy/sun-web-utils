@@ -4,14 +4,7 @@
   "description": "前端工具函数，集成最小依赖的工具函数",
   "main": "./src/index.js",
   "scripts": {
-    "test": "jest",
-    "coverage": "jest --coverage",
-    "prepublish": "npm run test"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run test"
-    }
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "sun",
@@ -25,10 +18,11 @@
     "email": "jianfengtheboy@163.com"
   },
   "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.10.7"
+  },
   "devDependencies": {
     "@babel/core": "^7.16.12",
-    "@babel/preset-env": "^7.16.11",
-    "husky": "^7.0.4",
-    "jest": "^27.4.7"
+    "@babel/preset-env": "^7.16.11"
   }
 }
