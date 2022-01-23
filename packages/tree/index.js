@@ -1,5 +1,5 @@
 /**
- * 属性数据处理工具函数
+ * 树形数据处理工具函数
  */
 export default class TreeUtils {
   /**
