@@ -53,7 +53,9 @@ const install = function (Vue) {
     }
     Vue.prototype.$utils = utils
   }
+  // 自定义过滤器
   Filters(Vue)
+  // 自定义指令
   Directives(Vue)
   return utils
 }
