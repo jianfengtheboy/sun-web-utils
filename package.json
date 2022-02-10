@@ -1,6 +1,6 @@
 {
   "name": "sun-web-utils",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "前端工具函数，集成最小依赖的工具函数",
   "main": "./src/index.js",
   "scripts": {

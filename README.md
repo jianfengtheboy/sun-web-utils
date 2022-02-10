@@ -30,3 +30,6 @@ Vue自定义过滤器
 字符串相关工具函数
 ## Tree
 树形数据处理工具函数
+
+## WebsocketHeartbeat
+websocket心跳检测
