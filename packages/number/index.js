@@ -2,11 +2,6 @@
  * 数值相关工具函数
  */
 export default class NumberUtils {
-  // 是否数字
-  isNumber(value) {
-    return Object.prototype.toString.call(value).slice(8, -1) === 'Number'
-  }
-  
   // 匹配正整数
   isPositiveNum(val) {
     return /^[1-9]\d*$/.test(val)

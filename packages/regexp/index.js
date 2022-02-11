@@ -2,13 +2,6 @@
  * 正则相关工具函数
  */
 export default class RegExpUtils {
-  /**
-   * 是否正则
-   */ 
-  isRegExp(value) {
-    return Object.prototype.toString.call(value).slice(8, -1) === 'RegExp'
-  }
-
   // 常规名称验证
   isName(value) {
     const reg = /^[\u4e00-\u9fa50-9a-zA-Z]([\u4e00-\u9fa50-9a-zA-Z_]*[\u4e00-\u9fa50-9a-zA-Z])*$/

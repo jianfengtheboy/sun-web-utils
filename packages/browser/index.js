@@ -152,14 +152,6 @@ export default class BrowserUtils {
   }
 
   /**
-   * 获取滚动条距左边的高度
-   */ 
-  getPageScrollLeft() {
-    const a = document
-    return a.documentElement.scrollLeft || a.body.scrollLeft
-  }
-
-  /**
    * 开启全屏
    */ 
   launchFullscreen(element) {
@@ -190,7 +182,7 @@ export default class BrowserUtils {
   }
 
   /**
-   * 返回当前滚动条位置
+   * 获取当前滚动条位置
    */ 
   getScrollPosition = (el = window) => ({
     x: el.pageXOffset !== undefined ? el.pageXOffset : el.scrollTo,

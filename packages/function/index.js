@@ -2,11 +2,6 @@
  * 函数相关工具函数
  */
 export default class FunctionUtils {
-  // 是否函数
-  isFunction(value) {
-    return Object.prototype.toString.call(value).slice(8, -1) === 'Function'
-  }
-
   /**
    * 递归生成树形结构
    */ 

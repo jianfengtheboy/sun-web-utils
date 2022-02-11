@@ -9,7 +9,7 @@ export default class TreeUtils {
    * @param  {Any} value 设置的值
    * @param  {Function} handle 处理函数，有值是会判断以处理函数返回值为准
    */
-   deepSet(obj, key, value, handle) {
+  deepSet(obj, key, value, handle) {
     if (Array.isArray(obj)) {
       obj.forEach((item) => this.deepSet(item, key, value, handle));
     } else {
@@ -30,7 +30,7 @@ export default class TreeUtils {
    * @param {*} value 数据值
    * @param {*} keyDef 数据值对应的字段
    */
-   deepGet(menus, value, keyDef) {
+  deepGet(menus, value, keyDef) {
     let result;
     (function func(subMenus) {
       if (result || !subMenus) return;
@@ -52,6 +52,4 @@ export default class TreeUtils {
     })(menus);
     return result;
   }
-
-  
 }

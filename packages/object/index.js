@@ -3,18 +3,6 @@
  */
 export default class ObjectUtils {
   /**
-   * 是否是对象
-   * @param {*} obj 
-   */
-  isObject(obj) {
-    return toString.apply(obj) === '[object Object]'
-  }
-  
-  isObj(value) {
-    return Object.prototype.toString.call(value).slice(8, -1) === 'Object'
-  }
-
-  /**
    * 混合多个对象，按传入顺序覆盖
    * @param {Array[Object]} args
    */

@@ -3,22 +3,10 @@
  */
 export default class ArrayUtils {
   /**
-   * 是否为数组
-   * @param {*} array
-   */
-  isArray(arr) {
-    return toString.apply(arr) === '[object Array]'
-  }
-
-  isArray(value) {
-    return Object.prototype.toString.call(value).slice(8, -1) === 'Array'
-  }
-
-  /**
    * 将类数组转为数组
    * @param {*} ary
    */
-   transformArray(ary) {
+  transformArray(ary) {
     const arr = Array.isArray(ary) ? ary : Array.prototype.slice.call(ary)
     return arr
   }
@@ -68,12 +56,6 @@ export default class ArrayUtils {
   }
 
   /**
-   * 返回数组的所有不同值
-   * @param {Array} arr
-   */
-  distinctValuesOfArray = (arr) => [...new Set(arr)]
-
-  /**
    * 返回数组中的每个第 n 个元素
    * @param {Array} arr
    * @param {Number} nth
@@ -85,18 +67,6 @@ export default class ArrayUtils {
    * @param {Array} arr
    */
   filterNonUnique = (arr) => arr.filter(i => arr.indexOf(i) !== arr.lastIndexOf(i))
-
-  /**
-   * 拼合数组
-   * @param {Array} arr
-   */
-  flatten = (arr) => arr.reduce((a, v) => a.concat(v), [])
-
-  /**
-   * 返回除最后一个数组之外的所有元素
-   * @param {Array} arr
-   */
-  initial = (arr) => arr.slice(0, -1)
 
   /**
    * 初始化并填充具有指定值的数组
@@ -120,24 +90,6 @@ export default class ArrayUtils {
    * @param {Number} n
    */
   nthElement = (arr, n = 0) => (n > 0 ? arr.slice(n, n + 1) : arr.slice(n))[0]
-
-  /**
-   * 从对象中选取对应于给定键的键值对
-   * @param {Object} obj
-   * @param {Array} arr
-   */
-  pick = (obj = {}, arr = []) => arr.reduce((acc, curr) => (curr in obj && (acc[curr] = obj[curr]), acc), {})
-
-  /**
-  * 对原始数组进行变异, 以筛选出指定的值
-  * @param {Array} arr
-  * @param {Array} args
-  */
-  pull = (arr, ...args) => {
-    const pulled = arr.filter(v => !args.includes(v))
-    arr.length = 0
-    pulled.forEach(v => arr.push(v))
-  }
  
   /**
    * 从数组中移除给定函数返回false的元素
@@ -150,7 +102,7 @@ export default class ArrayUtils {
   }, []) : []
  
   /**
-  * 返回数组中的随机元素
+  * 随机返回数组中的元素
   * @param {Array} arr
   */
   sample = (arr) => arr[Math.floor(Math.random() * arr.length)]
@@ -172,12 +124,6 @@ export default class ArrayUtils {
     const sB = new Set(b)
     return [...a.filter(x => !sB.has(x)), ...b.filter(x => !sA.has(x))]
   }
- 
-  /**
-  * 返回数组中的所有元素, 除第一个
-  * @param {Array} arr
-  */ 
-  tail = (arr) => arr.length > 1 ? arr.slice(1) : arr
 
   /**
    * 返回一个数组, 其中 n 个元素从开始处移除
@@ -194,79 +140,11 @@ export default class ArrayUtils {
   takeRight = (arr, n = 1) => arr.slice(arr.length - n, arr.length)
 
   /**
-   * 返回在两个数组中的任意一个中存在的每个元素
+   * 合并两个数组并去重
    * @param {Array} a
    * @param {Array} b
    */ 
   union = (a, b) => Array.from(new Set([...a, ...b]))
-
-  /**
-   * 筛选出数组中具有指定值之一的元素
-   * @param {Array} arr
-   * @param {Array} args
-   */ 
-  without = (arr, ...args) => arr.filter(v => !args.includes(v))
-
-  /**
-   * 创建基于原始数组中的位置分组的元素数组
-   * @param {Array} arrays
-   */ 
-  zip = (...arrays) => {
-    const maxLength = Math.max(...arrays.map(x => x.length))
-    return Array.from({
-      length: maxLength
-    }).map((_, i) => {
-      return Array.from({
-        length: arrays.length
-      }, (_, k) => arrays[k][i])
-    })
-  }
- 
-  /**
-  * 从给定数组中移除一项
-  * @param {Array} arr
-  * @param {*} item
-  */ 
-  removeArrayItem = (arr, item) => {
-    let i = 0
-    while (i < arr.length) {
-      if (arr[i] == item) {
-        arr.splice(i, 1)
-      } else {
-        i++
-      }
-    }
-    return arr
-  }
-
-  /**
-   * 检查给定数组中是否包含某项
-   * @param {Array} arr
-   * @param {*} item
-   */ 
-  contains = (arr, item) => {
-    let i = arr.length
-    while (i--) {
-      if (arr[i] === item) {
-        return true
-      }
-    }
-    return false
-  }
- 
-  /**
-   * 查询数组中是否存在某个元素并返回元素第一次出现的下标
-   * @param {*} item
-   * @param {Array} data
-   */ 
-  inArray = (item, data) => {
-    for (let i = 0; i < data.length; i++) {
-      if (item === data[i]) {
-        return i
-      }
-    }
-    return -1
-  }
  
   /**
    * 数组去重
@@ -296,7 +174,7 @@ export default class ArrayUtils {
     return Math.max(...arr)
   }
  
-  arrayMaxReduce = (arr) => arr.reduce((s, n) => Math.max(s, n)) 
+  arrayMaxReduce = (arr) => arr.reduce((s, n) => Math.max(s, n))
 
   arrayMaxCompire = (arr) => arr.reduce((s, n) => s > n ? s : n)
 
@@ -312,16 +190,8 @@ export default class ArrayUtils {
 
   chunkSplice = (arr, size = 1) => Array.from({ length: Math.ceil(arr.length / size) }, () => arr.splice(0, size))
 
-  chunkWhile = (arr, size = 1) => {
-    const returnArr = []
-    while (arr.length) {
-      returnArr.push(arr.splice(0, size))
-    }
-    return returnArr
-  }
-
   /**
-   * 检查数组中某元素出现的次数
+   * 返回数组中某元素出现的次数
    * @param {*} arr 
    * @param {*} value 
    * @returns 
