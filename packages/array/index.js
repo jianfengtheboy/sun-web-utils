@@ -25,15 +25,19 @@ export default class ArrayUtils {
    * @param {Array} arr
    * @param {Number} size
    */
-  chunkArray = (arr, size) => Array.from({
-    length: Math.ceil(arr.length / size)
-  }, (v, i) => arr.slice(i * size, i * size + size))
+  chunkArray (arr, size) {
+    return Array.from({
+      length: Math.ceil(arr.length / size)
+    }, (v, i) => arr.slice(i * size, i * size + size))
+  }
 
   /**
    * 从数组中移除 false 值
    * @param {Array} arr
    */
-  compact = (arr) => arr.filter(Boolean)
+  compact (arr) {
+    return arr.filter(Boolean)
+  }
 
   /**
    * 返回两个数组之间的不相同元素
@@ -50,7 +54,7 @@ export default class ArrayUtils {
    * @param {Array} a
    * @param {Array} b
    */
-  intersection = (a, b) => {
+  intersection (a, b) {
     const s = new Set(b)
     return a.filter(x => s.has(x))
   }
@@ -60,66 +64,73 @@ export default class ArrayUtils {
    * @param {Array} arr
    * @param {Number} nth
    */
-  everyNth = (arr, nth) => arr.filter((e, i) => i % nth === 0)
+  everyNth (arr, nth) {
+    return arr.filter((e, i) => i % nth === 0)
+  }
 
   /**
    * 筛选出数组中的非唯一值
    * @param {Array} arr
    */
-  filterNonUnique = (arr) => arr.filter(i => arr.indexOf(i) !== arr.lastIndexOf(i))
+  filterNonUnique (arr) {
+    return arr.filter(i => arr.indexOf(i) !== arr.lastIndexOf(i))
+  }
 
   /**
    * 初始化并填充具有指定值的数组
    * @param {Number} end
    * @param {Number} start
    */
-  initializeArrayWithRange = (end, start = 0) => Array.from({
-    length: end - start
-  }).map((v, i) => i + start)
+  initializeArrayWithRange (end, start = 0) {
+    return Array.from({
+      length: end - start
+    }).map((v, i) => i + start)
+  }
 
   /**
    * 初始化并填充具有指定值的数组
    * @param {*} n
    * @param {Number} value
    */
-  initializeArrayWithValues = (n, value = 0) => Array(n).fill(value)
-
-  /**
-   * 返回数组的第 n 个元素
-   * @param {Array} arr
-   * @param {Number} n
-   */
-  nthElement = (arr, n = 0) => (n > 0 ? arr.slice(n, n + 1) : arr.slice(n))[0]
+  initializeArrayWithValues (n, value = 0) {
+    return Array(n).fill(value)
+  }
  
   /**
    * 从数组中移除给定函数返回false的元素
    * @param {Array} arr
    * @param {Function} func
    */
-  remove = (arr, func) => Array.isArray(arr) ? arr.filter(func).reduce((acc, val) => {
-    arr.splice(arr.indexOf(val), 1)
-    return acc.concat(val)
-  }, []) : []
+  remove (arr, func) {
+    return Array.isArray(arr) ? arr.filter(func).reduce((acc, val) => {
+      arr.splice(arr.indexOf(val), 1)
+      return acc.concat(val)
+    }, []) : []
+  }
  
   /**
   * 随机返回数组中的元素
   * @param {Array} arr
   */
-  sample = (arr) => arr[Math.floor(Math.random() * arr.length)]
+  sample (arr) {
+    return arr[Math.floor(Math.random() * arr.length)]
+  }
 
   /**
    * 返回两个数组中都显示的元素的数组
    * @param {Array} arr
    * @param {Array} values
    */ 
-  similarity = (arr, values) => arr.filter(v => values.includes(v))
+  similarity (arr, values) {
+    return arr.filter(v => values.includes(v))
+  }
 
   /**
    * 返回两个数组之间的对称差
    * @param {Array} a
    * @param {Array} b
    */
-  symmetricDifference = (a, b) => {
+  symmetricDifference (a, b) {
     const sA = new Set(a)
     const sB = new Set(b)
     return [...a.filter(x => !sB.has(x)), ...b.filter(x => !sA.has(x))]
@@ -130,34 +141,46 @@ export default class ArrayUtils {
    * @param {Array} arr
    * @param {Number} n
    */ 
-  take = (arr, n = 1) => arr.slice(0, n)
+  take (arr, n = 1) {
+    return arr.slice(0, n)
+  }
 
   /**
    * 返回一个数组, 其中 n 个元素从末尾移除
    * @param {Array} arr
    * @param {Number} n
    */ 
-  takeRight = (arr, n = 1) => arr.slice(arr.length - n, arr.length)
+  takeRight (arr, n = 1) {
+    return arr.slice(arr.length - n, arr.length)
+  }
 
   /**
    * 合并两个数组并去重
    * @param {Array} a
    * @param {Array} b
    */ 
-  union = (a, b) => Array.from(new Set([...a, ...b]))
+  union (a, b) {
+    return Array.from(new Set([...a, ...b]))
+  }
  
   /**
    * 数组去重
    * @param {*} arr 
    * @returns 
    */
-  noRepeatSet = (arr) => [...new Set(arr)]
+  noRepeatSet (arr) {
+    return [...new Set(arr)]
+  }
 
-  noRepeatFrom = (arr) => Array.from(new Set(arr))
+  noRepeatFrom (arr) {
+    return Array.from(new Set(arr))
+  }
 
-  noRepeatFilter = (arr) => arr.filter((v, idx) => idx == arr.lastIndexOf(v))
+  noRepeatFilter (arr) {
+    return arr.filter((v, idx) => idx == arr.lastIndexOf(v))
+  }
   
-  noRepeatObject = (arr) => {
+  noRepeatObject (arr) {
     return Object.values(arr.reduce((s, n) => {
       s[n] = n
       return s
@@ -174,11 +197,17 @@ export default class ArrayUtils {
     return Math.max(...arr)
   }
  
-  arrayMaxReduce = (arr) => arr.reduce((s, n) => Math.max(s, n))
+  arrayMaxReduce (arr) {
+    return arr.reduce((s, n) => Math.max(s, n))
+  }
 
-  arrayMaxCompire = (arr) => arr.reduce((s, n) => s > n ? s : n)
+  arrayMaxCompire (arr) {
+    return arr.reduce((s, n) => s > n ? s : n)
+  }
 
-  arrayMaxSort = (arr) => arr.sort((n, m) => m - n)[0]
+  arrayMaxSort (arr) {
+    return arr.sort((n, m) => m - n)[0]
+  }
  
   /**
    * 返回以size为长度的数组分割的原数组
@@ -186,9 +215,13 @@ export default class ArrayUtils {
    * @param {*} size 
    * @returns 
    */
-  chunkSlice = (arr, size = 1) => Array.from({ length: Math.ceil(arr.length / size) }, (v, i) => arr.slice(i * size, i * size + size))
+  chunkSlice (arr, size = 1) {
+    return Array.from({ length: Math.ceil(arr.length / size) }, (v, i) => arr.slice(i * size, i * size + size))
+  }
 
-  chunkSplice = (arr, size = 1) => Array.from({ length: Math.ceil(arr.length / size) }, () => arr.splice(0, size))
+  chunkSplice (arr, size = 1) {
+    return Array.from({ length: Math.ceil(arr.length / size) }, () => arr.splice(0, size))
+  }
 
   /**
    * 返回数组中某元素出现的次数
@@ -196,16 +229,20 @@ export default class ArrayUtils {
    * @param {*} value 
    * @returns 
    */
-  countOccurrencesReduce = (arr, value) => arr.reduce((a, v) => v === value ? a + 1 : a + 0, 0)
+  countOccurrencesReduce (arr, value) {
+    return arr.reduce((a, v) => v === value ? a + 1 : a + 0, 0)
+  }
 
-  countOccurrencesFilter = (arr, value) => arr.filter(v => v === value).length
+  countOccurrencesFilter (arr, value) {
+    return arr.filter(v => v === value).length
+  }
  
   /**
    * 数组乱排
    * @param {*} arr 
    * @returns 
    */
-  shuffleWhile = (arr) => {
+  shuffleWhile (arr) {
     const array = arr
     let index = array.length
     while (index) {
@@ -218,13 +255,15 @@ export default class ArrayUtils {
     return array
   }
 
-  shuffleSort = (arr) => arr.sort(() => Math.random() - 0.5)
+  shuffleSort (arr) {
+    return arr.sort(() => Math.random() - 0.5)
+  }
 
   /**
    * 洗牌算法随机
    * @param {Array} arr
    */ 
-	shuffle = (arr) => {
+	shuffle (arr) {
     const result = []
     let random
     while (arr.length > 0) {

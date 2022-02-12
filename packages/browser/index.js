@@ -26,14 +26,16 @@ export default class BrowserUtils {
   /**
    * 获取当前url
    */
-  currentURL = () => window.location.href
+  currentURL () {
+    return window.location.href
+  }
 
   /**
    * 获取url参数
    * @param {*} name
    * @param {*} origin
    */
-  getUrlParam = (name, origin) => {
+  getUrlParam (name, origin) {
     const reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)")
     let r = null
     if (origin == null) {
@@ -56,7 +58,7 @@ export default class BrowserUtils {
     return obj[param];
   }
 
-  getURLParametersReduce = (url) => {
+  getURLParametersReduce (url) {
     return url
       .match(/([^?=&]+)(=([^&]*))/g)
       .reduce(
@@ -72,7 +74,7 @@ export default class BrowserUtils {
    * @param {*} paramName
    * @param {*} replaceWith
    */ 
-  replaceParamVal = (paramName, replaceWith) => {
+  replaceParamVal (paramName, replaceWith) {
     const oUrl = location.href.toString()
     const re = eval('/('+ paramName + '=)([^&]*)/gi')
     location.href = oUrl.replace(re, paramName + '=' + replaceWith)
@@ -184,10 +186,12 @@ export default class BrowserUtils {
   /**
    * 获取当前滚动条位置
    */ 
-  getScrollPosition = (el = window) => ({
-    x: el.pageXOffset !== undefined ? el.pageXOffset : el.scrollTo,
-    y: el.pageYOffset !== undefined ? el.pageYOffset : el.scrollTo
-  })
+  getScrollPosition (el = window) {
+    return {
+      x: el.pageXOffset !== undefined ? el.pageXOffset : el.scrollTo,
+      y: el.pageYOffset !== undefined ? el.pageYOffset : el.scrollTo
+    }
+  }
 
   /**
    * 滚动到指定元素区域

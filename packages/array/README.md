@@ -66,13 +66,6 @@
   initializeArrayWithValues(4, 2) // [2, 2, 2, 2]
 ```
 
-#### 返回数组的第 n 个元素
-```js
-  const arr = [2, 3, 4, 5, 6, 7, 8]
-
-  nthElement(arr, 4) // 6 
-```
-
 #### 返回数组中的随机元素
 ```js
   const arr = [2, 3, 4, 5, 6, 7, 8]

@@ -290,7 +290,7 @@ export default class DateUtils {
    * @param {Number} number 传入时间戳 
    * @param {*} format 返回格式支持自定义但参数必须与formateArr里保持一致 
   */  
-  formatDateTime = (number, format) => {  
+  formatDateTime (number, format) {  
     const formateArr = ['Y','M','D','h','m','s']
     const returnArr = []
     
@@ -313,7 +313,7 @@ export default class DateUtils {
    * 格式化时间，转化为几分钟前，几秒钟前
    * @param timestamp 时间戳，单位是毫秒
    */
-  timeFormat = (timestamp) => {
+  timeFormat (timestamp) {
     const mistiming = Math.round((Date.now() - timestamp) / 1000)
     const arrr = ['年', '个月', '星期', '天', '小时', '分钟', '秒']
     const arrn = [31536000, 2592000, 604800, 86400, 3600, 60, 1]

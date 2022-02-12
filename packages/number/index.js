@@ -27,5 +27,7 @@ export default class NumberUtils {
     * @param { number } min 
     * @param { number } max 
     */
-  RandomNum = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
+  RandomNum(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min
+  }
 }

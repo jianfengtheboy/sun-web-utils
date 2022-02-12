@@ -15,38 +15,38 @@ import StringUtils from '../packages/string'
 import TreeUtils from "../packages/tree"
 import WebsocketHeartbeat from "../packages/websocket"
 
-const ArrayUtils = new ArrayUtils()
-const BrowserUtils = new BrowserUtils()
-const CacheUtils = new CacheUtils()
-const CalculateUtils = new CalculateUtils()
-const DateUtils = new DateUtils()
-const DomUtils = new DomUtils()
-const FileUtils = new FileUtils()
-const FunctionUtils = new FunctionUtils()
-const ObjectUtils = new ObjectUtils()
-const NumberUtils = new NumberUtils()
-const RegExpUtils = new RegExpUtils()
-const StringUtils = new StringUtils()
-const TreeUtils = new TreeUtils()
+const arrayUtils = new ArrayUtils()
+const browserUtils = new BrowserUtils()
+const cacheUtils = new CacheUtils()
+const calculateUtils = new CalculateUtils()
+const dateUtils = new DateUtils()
+const domUtils = new DomUtils()
+const fileUtils = new FileUtils()
+const functionUtils = new FunctionUtils()
+const objectUtils = new ObjectUtils()
+const numberUtils = new NumberUtils()
+const regExpUtils = new RegExpUtils()
+const stringUtils = new StringUtils()
+const treeUtils = new TreeUtils()
 
 /**
  * 初始化，若使用Vue，可使用Vue.use()绑定到实例上；反之，可直接运行此函数生成实例对象使用
  */
 const install = function (Vue) {
   const utils = {
-    array: ArrayUtils,
-    browser: BrowserUtils,
-    cache: CacheUtils,
-    calculate: CalculateUtils,
-    date: DateUtils,
-    dom: DomUtils,
-    file: FileUtils,
-    func: FunctionUtils,
-    object: ObjectUtils,
-    number: NumberUtils,
-    regexp: RegExpUtils,
-    string: StringUtils,
-    tree: TreeUtils,
+    array: arrayUtils,
+    browser: browserUtils,
+    cache: cacheUtils,
+    calculate: calculateUtils,
+    date: dateUtils,
+    dom: domUtils,
+    file: fileUtils,
+    func: functionUtils,
+    object: objectUtils,
+    number: numberUtils,
+    regexp: regExpUtils,
+    string: stringUtils,
+    tree: treeUtils,
     WebsocketHeartbeat
   }
   if (Vue) {
@@ -64,35 +64,35 @@ const install = function (Vue) {
 
 export default {
   install,
-  ArrayUtils,
-  BrowserUtils,
-  CacheUtils,
-  CalculateUtils,
-  DateUtils,
-  DomUtils,
-  FileUtils,
-  FunctionUtils,
-  ObjectUtils,
-  NumberUtils,
-  RegExpUtils,
-  StringUtils,
-  TreeUtils,
+  arrayUtils,
+  browserUtils,
+  cacheUtils,
+  calculateUtils,
+  dateUtils,
+  domUtils,
+  fileUtils,
+  functionUtils,
+  objectUtils,
+  numberUtils,
+  regExpUtils,
+  stringUtils,
+  treeUtils,
   WebsocketHeartbeat
 }
 
 export {
-  ArrayUtils,
-  BrowserUtils,
-  CacheUtils,
-  CalculateUtils,
-  DateUtils,
-  DomUtils,
-  FileUtils,
-  FunctionUtils,
-  ObjectUtils,
-  NumberUtils,
-  RegExpUtils,
-  StringUtils,
-  TreeUtils,
+  arrayUtils,
+  browserUtils,
+  cacheUtils,
+  calculateUtils,
+  dateUtils,
+  domUtils,
+  fileUtils,
+  functionUtils,
+  objectUtils,
+  numberUtils,
+  regExpUtils,
+  stringUtils,
+  treeUtils,
   WebsocketHeartbeat
 }

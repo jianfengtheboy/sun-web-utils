@@ -111,7 +111,9 @@ export default class DomUtils {
    * @returns 
    * 例: hide(document.querySelectorAll('img'))
    */ 
-  hideTag = (...el) => [...el].forEach(e => (e.style.display = 'none'))
+  hideTag(...el) {
+    return [...el].forEach(e => (e.style.display = 'none'))
+  }
 
   /**
    * 返回指定元素的生效样式
@@ -119,7 +121,9 @@ export default class DomUtils {
    * @param {*} ruleName 指定元素的名称
    * @returns 
    */
-  getStyle = (el, ruleName) => window.getComputedStyle(el, null).getPropertyValue(ruleName)
+  getStyle(el, ruleName) {
+    return window.getComputedStyle(el, null).getPropertyValue(ruleName)
+  }
 
   /**
    * 检查是否包含子元素
@@ -128,7 +132,9 @@ export default class DomUtils {
    * @returns 
    * 例：elementContains(document.querySelector('head'), document.querySelector('title')); // true
    */
-  elementContains = (parent, child) => parent !== child && parent.contains(child)
+  elementContains(parent, child) {
+    return parent !== child && parent.contains(child)
+  }
 
   /**
    * 切换一个元素的类
@@ -137,7 +143,9 @@ export default class DomUtils {
    * @returns 
    * 例：toggleClass(document.querySelector('p.special'), 'special')
    */
-  toggleClass = (el, className) => el.classList.toggle(className)
+  toggleClass(el, className) {
+    return el.classList.toggle(className)
+  }
  
   /**
    * 获取元素中的所有图像
@@ -146,7 +154,7 @@ export default class DomUtils {
    * @returns 
    * 例：getImages(document, true); // ['image1.jpg', 'image2.png', 'image1.png', '...']
    */
-  getImages = (el, includeDuplicates = false) => {
+  getImages(el, includeDuplicates = false) {
     const images = [...el.getElementsByTagName('img')].map(img => img.getAttribute('src'))
     return includeDuplicates ? images : [...new Set(images)]
   }
@@ -157,11 +165,13 @@ export default class DomUtils {
    * @returns 
    * 例： formToObject(document.querySelector('#form'))
    */
-  formToObject = (form) => Array.from(new FormData(form)).reduce(
-    (acc, [key, value]) => ({
-      ...acc,
-      [key]: value
-    }),
-    {}
-  )
+  formToObject (form) {
+    return Array.from(new FormData(form)).reduce(
+      (acc, [key, value]) => ({
+        ...acc,
+        [key]: value
+      }),
+      {}
+    )
+  }
 }

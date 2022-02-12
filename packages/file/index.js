@@ -69,7 +69,7 @@ export default class FileUtils {
     * base64转blob
     * @param { base64 } base64
     */
-  base64ToBlob = (base64) => {
+  base64ToBlob (base64) {
     const arr = base64.split(',')
     const mime = arr[0].match(/:(.*?);/)[1]
     const bstr = atob(arr[1])
@@ -86,7 +86,7 @@ export default class FileUtils {
     * @param { blob } blob
     * @param { string } fileName
     */
-  blobToFile = (blob, fileName) => {
+  blobToFile (blob, fileName) {
     blob.lastModifiedDate = new Date()
     blob.name = fileName
     return blob
@@ -97,7 +97,7 @@ export default class FileUtils {
     * @param { base64 } base64
     * @param { string } filename 转换后的文件名
     */
-   base64ToFile = (base64, filename)=> {
+   base64ToFile(base64, filename) {
     const arr = base64.split(',')
     const mime = arr[0].match(/:(.*?);/)[1]
     const suffix = mime.split('/')[1] // 图片后缀
@@ -114,7 +114,7 @@ export default class FileUtils {
     * file转base64
     * @param { * } file 图片文件
     */
-  fileToBase64 = (file) => {
+  fileToBase64(file) {
     const reader = new FileReader()
     reader.readAsDataURL(file)
     reader.onload = function (e) {
